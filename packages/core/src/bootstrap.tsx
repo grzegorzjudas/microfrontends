@@ -8,6 +8,8 @@ import { ReduxState } from './type/Redux';
 import App from './components/App';
 import reducers from './reducers';
 
+import './style.css';
+
 const composer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 const store: Store<ReduxState> = createStore(reducers, {}, composer(applyMiddleware(Thunk)));
 

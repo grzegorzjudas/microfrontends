@@ -2,6 +2,7 @@ const path = require('path');
 
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 printEnvironment(getEnvironment(), true);
 
@@ -37,6 +38,13 @@ module.exports = {
                 use: [
                     { loader: 'ts-loader' }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' }
+                ]
             }
         ]
     },
@@ -54,6 +62,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             scriptLoading: 'defer'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './src/**/*.css', to: 'static/styles/style.css' },
+                { from: './assets', to: 'static/', noErrorOnMissing: true }
+            ]
         })
     ]
 };
