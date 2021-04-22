@@ -1,3 +1,19 @@
 h3 {
     color: red;
 }
+
+section.microfrontend {
+    border: 1px solid #000000;
+    padding: 16px;
+    position: relative;
+}
+
+section.microfrontend:before {
+    content: "Microfrontend";
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    background-color: #ffffff;
+    display: block;
+    padding: 0 5px;
+}

@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import Text from '../../components/Text';
 import Microfrontend from '../../components/Microfrontend';
 
+import reactLogo from '../../../assets/images/react-logo.svg';
+
 const AuthApp = React.lazy(() => import('@grzegorzjudas/auth/App'));
 
 type Props = {
@@ -21,10 +23,13 @@ export function App (props: Props) {
     return (
         <Provider store={props.store}>
             <Text />
+            <img src={reactLogo} width={200} />
             <h5>You have clicked {clicks} times.</h5>
-            <Microfrontend fallback="Loading auth..." failure="Could not load microfrontend. Is it running?">
-                <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} />
-            </Microfrontend>
+            <section className="microfrontend">
+                <Microfrontend fallback="Loading auth..." failure="Could not load microfrontend. Is it running?">
+                    <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} />
+                </Microfrontend>
+            </section>
         </Provider>
     );
 }

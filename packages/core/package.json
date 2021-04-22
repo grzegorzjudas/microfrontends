@@ -19,6 +19,7 @@
         "@types/react-redux": "^7.1.16",
         "@types/redux": "^3.6.0",
         "@types/redux-thunk": "^2.1.0",
+        "@types/webpack-env": "^1.16.0",
         "@typescript-eslint/eslint-plugin": "^4.22.0",
         "@typescript-eslint/parser": "^4.22.0",
         "copy-webpack-plugin": "^8.1.1",

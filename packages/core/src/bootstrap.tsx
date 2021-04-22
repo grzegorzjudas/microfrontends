@@ -1,16 +1,31 @@
 import React from 'react';
-import Thunk from 'redux-thunk';
 import { render } from 'react-dom';
-import { createStore, compose, Store, applyMiddleware } from 'redux';
 
-import { ReduxState } from './type/Redux';
-
+import { createStore } from './lib/store';
 import App from './components/App';
-import reducers from './reducers';
 
 import './style.css';
 
-const composer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
-const store: Store<ReduxState> = createStore(reducers, {}, composer(applyMiddleware(Thunk)));
+const store = createStore();
 
 render(<App store={store} />, document.getElementById('app'));
+
+if (module.hot) {
+    /* eslint-disable @typescript-eslint/no-var-requires */
+
+    module.hot.accept('./components/App', () => {
+        const NewApp = require('./components/App').default;
+
+        render(<NewApp store={store} />, document.getElementById('app'));
+    });
+
+    module.hot.accept('./reducers', () => {
+        const newReducer = require('./reducers').default;
+
+        store.replaceReducer(newReducer);
+    });
+
+    module.hot.accept();
+
+    /* eslint-enable @typescript-eslint/no-var-requires */
+}
