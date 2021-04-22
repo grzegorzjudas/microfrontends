@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import Text from '../../components/Text';
 import { createStore } from '../../lib/store';
 
+import styles from '../../style.css';
+
 const store = createStore();
 
 export type Props = {
@@ -13,10 +15,15 @@ export type Props = {
 
 export function App (props: Props) {
     return (
-        <Provider store={store}>
-            <Text prefix={props.text} />
-            <button onClick={props.onButtonClicked}>Click me</button>
-        </Provider>
+        <>
+            <style>
+                {styles}
+            </style>
+            <Provider store={store}>
+                <Text prefix={props.text} />
+                <button onClick={props.onButtonClicked}>Click me</button>
+            </Provider>
+        </>
     );
 }
 

@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, ReactNode, Suspense } from 'react';
+import root from 'react-shadow';
 
 import ErrorBoundary from '../../components/ErrorBoundary';
 
@@ -13,7 +14,9 @@ export function Microfrontend (props: Props) {
     return (
         <ErrorBoundary fallback={failure}>
             <Suspense fallback={fallback}>
-                {props.children}
+                <root.div>
+                    {props.children}
+                </root.div>
             </Suspense>
         </ErrorBoundary>
     );

@@ -5,3 +5,8 @@ declare module '@grzegorzjudas/auth/App' {
 
     export default App;
 }
+
+declare module '*.css' {
+    const content: any;
+    export default content;
+}
