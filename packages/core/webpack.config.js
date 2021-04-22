@@ -42,7 +42,7 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: '@grzegorzjudas/ui',
+            name: '@grzegorzjudas/core',
             remotes: {
                 '@grzegorzjudas/auth': 'auth@http://localhost:9001/remoteEntry.js'
             },

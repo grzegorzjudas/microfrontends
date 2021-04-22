@@ -1,0 +1,28 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "standard"
+    ],
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "semi": [ "error", "always" ],
+        "indent": [ "error", 4, { "SwitchCase": 1 } ],
+        "array-bracket-spacing": [ "error", "always" ],
+        "no-use-before-define": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-inferrable-types": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
