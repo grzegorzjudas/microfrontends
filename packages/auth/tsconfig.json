@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "rootDir": "src",
         "outDir": "dist",
         "module": "esnext",
         "moduleResolution": "node",

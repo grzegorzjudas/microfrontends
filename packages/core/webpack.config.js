@@ -47,8 +47,8 @@ module.exports = {
                 '@grzegorzjudas/auth': 'auth@http://localhost:9001/remoteEntry.js'
             },
             shared: {
-                'react': { singleton: true },
-                'react-dom': { singleton: true }
+                'react': { singleton: false },
+                'react-dom': { singleton: false }
             }
         }),
         new HtmlWebpackPlugin({

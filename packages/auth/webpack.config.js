@@ -52,8 +52,8 @@ module.exports = {
                 './App': './src/components/App'
             },
             shared: {
-                'react': { singleton: true },
-                'react-dom': { singleton: true }
+                'react': { singleton: false },
+                'react-dom': { singleton: false }
             }
         }),
         new HtmlWebpackPlugin({
