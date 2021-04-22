@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "packages/core"
+		},
+		{
+			"path": "packages/design-system"
+		},
+		{
+			"path": "packages/auth"
+		}
+	]
+}

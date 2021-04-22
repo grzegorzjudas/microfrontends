@@ -13,6 +13,7 @@ module.exports = {
         filename: '[name].js'
     },
     mode: getEnvironment(),
+    devtool: switchEnvs('cheap-module-source-map'),
     resolve: {
         extensions: [ '.js', '.ts', '.tsx' ]
     },
