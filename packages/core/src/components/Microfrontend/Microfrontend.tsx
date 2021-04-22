@@ -1,7 +1,10 @@
 import React, { PropsWithChildren, ReactNode, Suspense } from 'react';
+import { ReactReduxContext } from 'react-redux';
 import root from 'react-shadow';
 
 import ErrorBoundary from '../../components/ErrorBoundary';
+
+// const SandboxContext = createContext(null);
 
 type Props = PropsWithChildren<{
     fallback?: ReactNode;
@@ -13,11 +16,17 @@ export function Microfrontend (props: Props) {
 
     return (
         <ErrorBoundary fallback={failure}>
-            <Suspense fallback={fallback}>
-                <root.div>
-                    {props.children}
-                </root.div>
-            </Suspense>
+            <ReactReduxContext.Consumer>
+                {() => (
+                    <ReactReduxContext.Provider value={null}>
+                        <Suspense fallback={fallback}>
+                            <root.div>
+                                {props.children}
+                            </root.div>
+                        </Suspense>
+                    </ReactReduxContext.Provider>
+                )}
+            </ReactReduxContext.Consumer>
         </ErrorBoundary>
     );
 }

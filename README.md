@@ -1,5 +1,17 @@
 # microfrontends
 
+A sample starter project for apps using [Module Federation](https://webpack.js.org/concepts/module-federation/) and [NPM Workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces). Tech stack consists of:
+
+- **React v17**
+- **TypeScript** *(with remote components typesafety)*
+- **Redux** *(fully sandboxed - child apps cannot access parent store)*
+- **CSS encapsulation** *(global styles from parent app not applied to child and vice-versa)*
+- **Docker** *(images ready for production and testing)*
+
+Lighthouse performance score:
+
+![lighthouse score](https://user-images.githubusercontent.com/3832059/115778047-5a57a200-a3b6-11eb-902c-87b33266aabf.png)
+
 ## TODO
 
 - **Hot Module Replacement in microfrontends** 🚫

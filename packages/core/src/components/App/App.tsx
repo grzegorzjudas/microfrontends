@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 
+// import { context } from '../../lib/store';
 import Text from '../../components/Text';
 import Microfrontend from '../../components/Microfrontend';
 
