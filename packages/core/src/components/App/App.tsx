@@ -23,8 +23,8 @@ export function App (props: Props) {
     return (
         <Provider store={props.store}>
             <Text />
-            <img src={reactLogo} width={200} />
-            <h5>You have clicked {clicks} times.</h5>
+            <img src={reactLogo} width={200} height={141} alt="React logo" />
+            <h4>You have clicked {clicks} times.</h4>
             <section className="microfrontend">
                 <Microfrontend fallback="Loading auth..." failure="Could not load microfrontend. Is it running?">
                     <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} />

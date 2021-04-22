@@ -60,10 +60,7 @@ module.exports = {
             exposes: {
                 './App': './src/components/App'
             },
-            shared: {
-                'react': { singleton: false },
-                'react-dom': { singleton: false }
-            }
+            shared: [ 'react', 'react-dom', 'redux', 'react-redux' ]
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',

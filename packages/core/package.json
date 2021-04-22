@@ -7,6 +7,7 @@
         "build": "webpack --config webpack.config.js",
         "dev": "webpack serve --progress",
         "docker:build": "docker image build -t grzegorzjudas/core .",
+        "docker:start": "docker container run --publish 9000:80 grzegorzjudas/core",
         "lint": "eslint 'src/**/*.{js,ts,tsx}'",
         "package": "cd dist && tar --exclude='*.map' -zcf ../artifact.tar.gz . && cd ..",
         "test": "echo \"Error: no test specified\" && exit 1"
