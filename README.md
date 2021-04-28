@@ -15,6 +15,10 @@ Lighthouse performance score:
 
 ## TODO
 
+- **Material UI support in microfrontends**
+
+    By extracting styles inside it through `<StyleProvider />` and JSS, to include as `<style />` inside the shadow DOM.
+
 - **Hot Module Replacement in microfrontends** 🚫
 
   Blocked - webpack [does not yet support HMR](https://github.com/module-federation/module-federation-examples/issues/358) in applications that expose anything through Module Federation. It's on [the roadmap](https://webpack.js.org/blog/2020-12-08-roadmap-2021/#hot-module-replacement-for-module-federation).
