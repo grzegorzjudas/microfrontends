@@ -5,6 +5,7 @@ A sample starter project for apps using [Module Federation](https://webpack.js.o
 - **React v17**
 - **TypeScript** *(with remote components typesafety)*
 - **Redux** *(fully sandboxed - child apps cannot access parent store)*
+- **Routing** *(react-router with virtual routing inside microfrontend, persistent through localStorage)*
 - **CSS encapsulation** *(global styles from parent app not applied to child and vice-versa)*
 - **Docker** *(images ready for production and testing)*
 
@@ -30,3 +31,4 @@ Lighthouse performance score:
 - **Ability for microfrontends to define their own global CSS not applied to parent apps** ✔️
 - **Error handling for microfrontends** ✔️
 - **Sandboxed redux store in all apps** ✔️
+- **Routing separate for every application, but working together** ✔️
