@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-type Props = {
-    label?: string;
-}
+type Props = PropsWithChildren<{
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}>;
 
 export function Button (props: Props) {
     return (
-        <button name="test">{props.label || 'Click me!'}</button>
+        <button name="test" onClick={props.onClick || null}>{props.children}</button>
     );
 }
 
