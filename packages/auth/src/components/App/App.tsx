@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Provider } from 'react-redux';
-import { createMemoryHistory } from 'history';
+import { createVirtualHistory, generateRandomModuleId } from '@grzegorzjudas/util';
 
 import { createStore } from '../../lib/store';
 import UrlBar from '../../components/UrlBar';
@@ -14,12 +14,16 @@ import { Link } from 'react-router-dom';
 const store = createStore();
 
 export type Props = {
+    name?: string;
+    path?: string;
     text?: string;
     onButtonClicked?: () => void;
 }
 
 export function App (props: Props) {
-    const history = useMemo(() => createMemoryHistory(), []);
+    const history = useMemo(() => {
+        return createVirtualHistory(props.name || generateRandomModuleId(), props.path);
+    }, []);
 
     return (
         <>

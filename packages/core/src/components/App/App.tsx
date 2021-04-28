@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { Microfrontend } from '@grzegorzjudas/util';
 
-import Text from '../../components/Text';
-import Microfrontend from '../../components/Microfrontend';
 import HomePage from '../../pages/HomePage';
 import InfoPage from '../../pages/InfoPage';
 
@@ -27,18 +26,22 @@ export function App (props: Props) {
                 <nav>
                     <Link to="/"><button>Home</button></Link>
                     <Link to="/info"><button>Info</button></Link>
+                    <Link to="/empty"><button>Empty</button></Link>
                 </nav>
                 <Switch>
                     <Route exact path="/" render={() => <HomePage clicks={clicks} />} />
                     <Route exact path="/info" component={InfoPage} />
-                    <Route render={() => <Redirect to="/" />} />
                 </Switch>
-                <Text />
-                <section className="microfrontend">
-                    <Microfrontend fallback="Loading auth..." failure="Could not load microfrontend. Is it running?">
-                        <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} />
-                    </Microfrontend>
-                </section>
+                <Switch>
+                    <Route exact path="/empty" render={() => <p>Nothing here.</p>} />
+                    <Route render={() => (
+                        <section className="microfrontend">
+                            <Microfrontend name="auth" loading="Loading auth..." failure="Could not load microfrontend. Is it running?">
+                                <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} path="/test" />
+                            </Microfrontend>
+                        </section>
+                    )} />
+                </Switch>
             </BrowserRouter>
         </Provider>
     );

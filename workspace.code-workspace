@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "packages/auth"
+		},
+		{
+			"path": "packages/util"
 		}
 	]
 }
