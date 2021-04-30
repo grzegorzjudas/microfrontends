@@ -3,10 +3,11 @@ const path = require('path');
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 printEnvironment(getEnvironment(), true);
 
-module.exports = {
+module.exports = (env) => ({
     entry: './src/index.ts',
     output: {
         path: path.join(__dirname, './dist'),
@@ -70,9 +71,10 @@ module.exports = {
                 { from: './src/**/*.css', to: 'static/styles/style.css' },
                 { from: './assets', to: 'static/', noErrorOnMissing: true }
             ]
-        })
+        }),
+        ...(env.analyze ? [ new BundleAnalyzerPlugin() ] : [])
     ]
-};
+});
 
 function printEnvironment (environment, colors) {
     console.log([

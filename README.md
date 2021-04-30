@@ -15,9 +15,13 @@ Lighthouse performance score:
 
 ## TODO
 
-- **Material UI support in microfrontends**
+- **Material UI support in microfrontends** 🚫
 
-    By extracting styles inside it through `<StyleProvider />` and JSS, to include as `<style />` inside the shadow DOM.
+    By extracting styles inside it through `<StyleProvider />` and JSS, to include as `<style />` inside the shadow DOM. Currently blocked due to Material-UIs issue with StyleContext being re-created for components imported from `design-system` package. Question asked [on StackOverflow](https://stackoverflow.com/questions/67336558/use-single-stylescontext-when-importing-component-from-custom-mui-based-library).
+
+- **Move microfrontend logic to separate npm package**
+
+    React components, functions, handlers, etc, should be moved to separate package and published, so that will be easy to use in other microfrontend-based applications.
 
 - **Hot Module Replacement in microfrontends** 🚫
 

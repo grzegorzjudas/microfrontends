@@ -1,8 +1,10 @@
 const path = require('path');
 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 printEnvironment(getEnvironment(), true);
 
-module.exports = {
+module.exports = (env) => ({
     entry: './src/index.ts',
     output: {
         path: path.join(__dirname, './dist'),
@@ -13,7 +15,9 @@ module.exports = {
     },
     devtool: switchEnvs('cheap-module-source-map'),
     externals: {
-        react: 'react'
+        'react': 'react',
+        'react-dom': 'react-dom',
+        '@material-ui/styles': '@material-ui/styles'
     },
     mode: getEnvironment(),
     resolve: {
@@ -33,8 +37,11 @@ module.exports = {
                 type: 'asset/inline'
             }
         ]
-    }
-};
+    },
+    plugins: [
+        ...(env.analyze ? [ new BundleAnalyzerPlugin() ] : [])
+    ]
+});
 
 function printEnvironment (environment, colors) {
     console.log([

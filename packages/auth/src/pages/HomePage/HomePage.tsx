@@ -12,7 +12,7 @@ export function HomePage (props: Props) {
     return (
         <>
             <Text prefix={props.text} />
-            <Button onClick={props.onButtonClicked}>Click!</Button>
+            <Button onClick={props.onButtonClicked} color="primary" variant="contained">Click!</Button>
         </>
     );
 }

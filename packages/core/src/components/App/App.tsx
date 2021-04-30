@@ -37,7 +37,7 @@ export function App (props: Props) {
                     <Route render={() => (
                         <section className="microfrontend">
                             <Microfrontend name="auth" loading="Loading auth..." failure="Could not load microfrontend. Is it running?">
-                                <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} path="/test" />
+                                <AuthApp text="Passed from core!" onButtonClicked={onButtonClicked} path="/" />
                             </Microfrontend>
                         </section>
                     )} />

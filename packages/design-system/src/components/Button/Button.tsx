@@ -1,12 +1,11 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
+import { Button as MuiButton, ButtonProps } from '@material-ui/core';
 
-type Props = PropsWithChildren<{
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}>;
+type Props = ButtonProps;
 
 export function Button (props: Props) {
     return (
-        <button name="test" onClick={props.onClick || null}>{props.children}</button>
+        <MuiButton name="test" {...props}>{props.children}</MuiButton>
     );
 }
 
