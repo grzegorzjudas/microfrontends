@@ -40,3 +40,4 @@ Lighthouse performance score:
 - **Error handling for microfrontends** ✔️
 - **Sandboxed redux store in all apps** ✔️
 - **Routing separate for every application, but working together** ✔️
+- **Dynamic microfrontends URLs injected during runtime (not webpack config)** ✔️
