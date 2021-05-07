@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-import { Microfrontend } from '@grzegorzjudas/util';
+import { Microfrontend, dynamicImport } from '@grzegorzjudas/util';
 
 import HomePage from '../../pages/HomePage';
 import InfoPage from '../../pages/InfoPage';
 
-const AuthApp = React.lazy(() => import('@grzegorzjudas/auth/App'));
+const AuthApp = React.lazy(() => dynamicImport('@grzegorzjudas/auth/App'));
 
 type Props = {
     store: Store;

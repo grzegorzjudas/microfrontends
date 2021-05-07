@@ -6,3 +6,7 @@ export {
 export {
     generateRandomModuleId
 } from './format';
+
+export {
+    dynamicImport
+} from './import';

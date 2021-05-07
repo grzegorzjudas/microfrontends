@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+const packageJson = require('./package.json');
+
 printEnvironment(getEnvironment(), true);
 
 module.exports = (env) => ({
@@ -56,10 +58,7 @@ module.exports = (env) => ({
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: '@grzegorzjudas/core',
-            remotes: {
-                '@grzegorzjudas/auth': 'auth@http://localhost:9001/remoteEntry.js'
-            },
+            name: packageJson.name,
             shared: [ 'react', 'react-dom', 'redux', 'react-redux' ]
         }),
         new HtmlWebpackPlugin({

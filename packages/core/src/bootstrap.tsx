@@ -10,6 +10,10 @@ const store = createStore();
 
 render(<App store={store} />, document.getElementById('app'));
 
+window.__remotes__ = {
+    '@grzegorzjudas/auth': 'auth@http://localhost:9001/remoteEntry.js'
+};
+
 if (module.hot) {
     /* eslint-disable @typescript-eslint/no-var-requires */
 
